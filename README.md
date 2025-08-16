@@ -23,10 +23,10 @@ personal-intro-webpage
 ## 🖼️ Captures d’écran du projet
 
 ### 1️⃣ Code généré par l’IA (Lovable)
-![Code généré par Lovable](./Screenshot/code-html-lavable.png)
+![Code généré par Lovable](./images/code-html-lavable.png)
 
 ### 2️⃣ Code affiché dans le navigateur (partie 1)
-![Code navigateur 1](./Screenshot/screen-1.png)
+![Code navigateur 1](./images/screen-1.png)
 
 ### 3️⃣ Code affiché dans le navigateur (partie 2)
-![Code navigateur 2](./Screenshot/screen-2.png)
+![Code navigateur 2](./images/screen-2.png)
