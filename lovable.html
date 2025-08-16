@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandre Dubois - Développeur Frontend</title>
+    <meta name="description" content="Portfolio personnel d'Alexandre Dubois, développeur frontend passionné par la création d'expériences numériques exceptionnelles">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #8b5cf6;
+            --primary-glow: #a78bfa;
+            --background: #0f0f23;
+            --foreground: #fafafa;
+            --muted: #374151;
+            --accent: #1f2937;
+            --gradient-hero: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #8b5cf6 100%);
+            --gradient-text: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
+            --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.3);
+            --shadow-elegant: 0 25px 50px -12px rgba(139, 92, 246, 0.4);
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 15, 35, 0.1);
+        }
+
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            top: 25%;
+            left: 25%;
+            width: 384px;
+            height: 384px;
+            background: rgba(167, 139, 250, 0.3);
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            bottom: 25%;
+            right: 25%;
+            width: 384px;
+            height: 384px;
+            background: rgba(139, 92, 246, 0.2);
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 1.5rem;
+            max-width: 64rem;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            background: var(--gradient-text);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            color: rgba(250, 250, 250, 0.9);
+            font-weight: 300;
+            max-width: 42rem;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            background: var(--gradient-hero);
+            color: var(--foreground);
+            border: none;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            box-shadow: var(--shadow-elegant);
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            background: rgba(139, 92, 246, 0.3);
+            border-radius: 50%;
+            filter: blur(2px);
+            animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        .element-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .element-2 {
+            bottom: 20%;
+            right: 10%;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: rgba(167, 139, 250, 0.4);
+            animation-delay: 1.4s;
+        }
+
+        @keyframes ping {
+            75%, 100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .profile-section {
+            padding: 5rem 1.5rem;
+            max-width: 64rem;
+            margin: 0 auto;
+            background: var(--background);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient-text);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .profile-card {
+            background: var(--accent);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-glow);
+        }
+
+        .card-content {
+            color: rgba(250, 250, 250, 0.8);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--primary-glow);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .profile-section {
+                padding: 3rem 1rem;
+            }
+            
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40%, 43% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            70% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .scroll-arrow {
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(250, 250, 250, 0.6);
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Section Héros -->
+    <section class="hero-section">
+        <div class="hero-bg-overlay"></div>
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Alexandre Dubois</h1>
+            <p class="hero-subtitle">
+                Développeur frontend créatif passionné par la création d'expériences 
+                numériques exceptionnelles et innovantes qui repoussent les limites du web moderne
+            </p>
+            <button class="cta-button" onclick="scrollToSection()">
+                Afficher mes projets
+            </button>
+        </div>
+        
+        <div class="floating-elements element-1"></div>
+        <div class="floating-elements element-2"></div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Section Profil -->
+    <section class="profile-section" id="profile">
+        <h2 class="section-title">Mon Profil</h2>
+        
+        <div class="profile-grid">
+            <div class="profile-card">
+                <h3 class="card-title">🎯 Mes Passions</h3>
+                <div class="card-content">
+                    <p>Je suis passionné par l'intersection entre design et technologie. J'adore créer des interfaces utilisateur intuitives et des animations fluides qui racontent une histoire.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Design UI/UX</span>
+                        <span class="skill-tag">Animations CSS</span>
+                        <span class="skill-tag">JavaScript moderne</span>
+                        <span class="skill-tag">Performance web</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <h3 class="card-title">🚀 Mes Objectifs</h3>
+                <div class="card-content">
+                    <p>Mon objectif est de devenir un développeur frontend expert, capable de transformer des idées créatives en expériences web mémorables et performantes.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">React & Vue.js</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">WebGL & Three.js</span>
+                        <span class="skill-tag">Progressive Web Apps</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <h3 class="card-title">💡 Ma Philosophie</h3>
+                <div class="card-content">
+                    <p>Je crois que le code est un art et que chaque ligne doit servir un purpose. L'accessibilité et la performance ne sont pas des options, mais des fondamentaux.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Clean Code</span>
+                        <span class="skill-tag">Accessibilité</span>
+                        <span class="skill-tag">Mobile First</span>
+                        <span class="skill-tag">Optimisation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <h3 class="card-title">🛠️ Mes Outils</h3>
+                <div class="card-content">
+                    <p>J'utilise les dernières technologies pour créer des expériences web modernes, en privilégiant les outils qui améliorent la productivité et la qualité du code.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Chrome DevTools</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animation d'apparition progressive des éléments
+        function observeElements() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const cards = document.querySelectorAll('.profile-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        }
+
+        // Scroll smooth vers la section profil
+        function scrollToSection() {
+            const profileSection = document.getElementById('profile');
+            profileSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Effet parallax léger sur les orbes flottantes
+        function initParallax() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.floating-orb');
+                
+                parallaxElements.forEach((element, index) => {
+                    const speed = 0.5 + (index * 0.1);
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+        }
+
+        // Animation du curseur personnalisé
+        function initCursorEffect() {
+            const cursor = document.createElement('div');
+            cursor.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                background: radial-gradient(circle, rgba(139, 92, 246, 0.8) 0%, transparent 70%);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                mix-blend-mode: difference;
+                transition: transform 0.1s ease-out;
+            `;
+            document.body.appendChild(cursor);
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX - 10 + 'px';
+                cursor.style.top = e.clientY - 10 + 'px';
+            });
+
+            document.addEventListener('mousedown', () => {
+                cursor.style.transform = 'scale(1.5)';
+            });
+
+            document.addEventListener('mouseup', () => {
+                cursor.style.transform = 'scale(1)';
+            });
+        }
+
+        // Initialisation au chargement de la page
+        document.addEventListener('DOMContentLoaded', () => {
+            observeElements();
+            initParallax();
+            initCursorEffect();
+        });
+
+        // Easter egg : Animation spéciale au clic sur le titre
+        document.querySelector('.hero-title').addEventListener('click', () => {
+            const title = document.querySelector('.hero-title');
+            title.style.animation = 'none';
+            setTimeout(() => {
+                title.style.animation = 'fadeInUp 1s ease-out';
+            }, 10);
+        });
+    </script>
+</body>
+</html>
