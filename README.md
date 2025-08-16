@@ -30,3 +30,9 @@ personal-intro-webpage
 
 ### 3️⃣ Code affiché dans le navigateur (partie 2)
 ![Code navigateur 2](./images/code-browser-2.png)
+
+### 4️⃣ Code affiché dans le navigateur apres quelque petites modifs(partie 3)
+![Code navigateur 2](./images/code-browser-3.png)
+
+### 5️⃣ Code affiché dans le navigateur apres quelque petites modifs(partie 4)
+![Code navigateur 2](./images/code-browser-4.png)
